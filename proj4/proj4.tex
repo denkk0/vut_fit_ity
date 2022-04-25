@@ -1,0 +1,56 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[text={17cm,24cm},top=3cm,left=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{times}
+\usepackage{csquotes}
+\usepackage[unicode]{hyperref}
+
+\begin{document}
+\begin{titlepage}
+     \begin{center}
+        {\Huge\textsc{Vysoké učení technické v Brně \\[0.3em]}
+        \huge\textsc {Fakulta informačních technologií}}
+        \\[80mm]
+        {\LARGE Typografie a publikování – 4. projekt \\[0.3em]
+        \Huge{Citace v typografii}}
+        \vfill
+        \end{center}
+        {\Large 23.března 2020 \hfill Denis Kramár}
+\end{titlepage}
+
+\section{Typografia}
+    \subsection{Čo je typografia}
+        Typografia je umenie umiestnenia písmen a textu takým spôsobom, aby bol výtlačok čitateľný, jasný a vizuálne príťažlivý pre čitateľa. \cite{Typography}
+    
+    \subsection{História}
+        Typografia sa traduje až do rokov 1850-1600 pred naším letopočtom a pochádza z Grécka. V tých dňoch, typografici používali niečo, čo je známe pod názvom \textit{Faistský disk}. Symboly z jazyka vytesané do disku sa potom pretláčali na papier alebo iný materiál. \cite{Mixner:2012}
+        
+    \subsection{Font a rodina písma}
+        Rodina písma je skupina príbuzných písiem, ktoré zdieľajú štýl dizajnu, obsahuje nespočetné množstvo znakov rôznej veľkosti, hmotnosti, zatiaľ čo font je grafické znázornenie textového znaku. \cite{Font}
+
+\section{\LaTeX}
+    \subsection{Čo je \LaTeX}
+        \LaTeX{} je software na sadzbu dokumentov. Inými slovami, jedná sa o systém na prípravu dokumentov. \LaTeX nie je textový procesor, ale je používaný ako značkovací jazyk dokumentu. \cite{Kottwitz:2011}.
+        
+    \subsection{História}
+        \LaTeX \ bol vytvorený začiatkom 80. rokov 20. storočia Lesliem Lamportom. Potreboval vlastné makrá pre \TeX a s trochou viac úsilia vytvoril balíček pre verejnosť. V roku 1986 vydal používateľský manuál pre \LaTeX. \cite{Lamport:1994}
+        
+    \subsection{Verzie \LaTeX -u}
+        Aktuálne používaná verzia je \LaTeX 2e, odkedy nahradila \LaTeX \ 2.09 v roku 1994. \LaTeX 3 je projekt v dlhodobom vývoji, ktorý začal už začiatkom 90. rokov 20. storočia. \cite{Versions}
+    
+    \subsection{Obrázky}
+         Možnosť ~~vloženia ~~obrázkov ~~do ~~dokumentu ~~musíme ~~najprv ~~nastaviť ~~v ~~preambule ~~príkazom \verb!\usepackage{graphicx}!, aby sa pri prekladu použil balíček \verb!graphicx!. Následne môžeme už vkladať obrázky pomocou príkazu \verb!\includegraphics!. \cite{Cerny:2010}
+         
+    \subsection{Balíček \texttt{color}}
+        Balíček \texttt{color} umožňuje v \LaTeX e používať farby. Medzi farbami definované pre všetky ovládače patrí: \texttt{red}, \texttt{green}, \texttt{blue}, \texttt{white}, \texttt{black}, \texttt{yellow}, \texttt{cyan}, \texttt{magenta}. \cite{Bunka:2008}
+        
+    \subsection{Balíček \texttt{xpicture}, \texttt{calculator} a \texttt{calculus}}
+        Balíček \texttt{xpicture} ~slúži ~na ~vykreslovanie ~grafov ~pomocou ~balíčkov \texttt{calculator} ~a \texttt{calculus}. \cite{Capilla:2013} Tie definujú veľké množstvo príkazov, ktoré sú určené k tomu, aby sa \LaTeX \ používal ako vedecká kalkulačka. \cite{Capilla:2012}
+        
+\newpage
+\bibliographystyle{czechiso}
+\renewcommand{\refname}{Literatura}
+\bibliography{proj4}
+
+\end{document}

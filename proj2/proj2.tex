@@ -1,0 +1,118 @@
+\documentclass[a4paper, 11pt, twocolumn]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[text={18cm,25cm}, left=1.5cm, top=2.5cm]{geometry}
+\usepackage[czech]{babel}
+\usepackage[IL2]{fontenc}
+\usepackage{times}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definice}
+
+\newtheorem{sentence}{Věta}
+
+\begin{document}
+    \begin{titlepage}
+        \begin{center}
+            {\Huge\textsc{Fakulta informačních technologií \\[0.4em]
+            Vysoké učení technické v Brně}}\\
+    
+            \vspace{\stretch{0.382}}
+    
+            {\LARGE Typografie a publikování – 2. projekt \\[0.3em]
+            Sazba dokumentů a matematických výrazů}\\
+            
+            \vspace{\stretch{0.618}}
+            
+            {\Large
+            2020
+            \hfill
+            Denis Kramár (xkrama06)}
+        \end{center}
+        
+    \end{titlepage}
+
+    \section*{Úvod}
+    V této úloze si vyzkoušíme sazbu titulní strany, matematic\-kých vzorců, prostředí a dalších textových struktur obvyklých pro technicky zaměřené texty (například rovnice (\ref{eq_2}) nebo Definice \ref{definice_retezec} na straně \pageref{definice_retezec}). Pro vytvoření těchto odkazů používáme příkazy \verb!\label!, \verb!\ref! a \verb!\pageref!.
+    
+    Na ~titulní ~straně ~je využito sázení nadpisu podle op\-tického středu s využitím zlatého řezu. Tento postup byl
+    probírán na přednášce. Dále je použito odřádkování se
+    zadanou relativní velikostí 0.4em a 0.3em.
+    
+    \section{Matematický text}
+    Nejprve se podíváme na sázení matematických symbolů ~a výrazů v plynulém textu včetně sazby definic a vět s využitím balíku \texttt{amsthm}. Rovněž použijeme poznámku pod čarou s použitím příkazu \verb!\footnote!. Někdy je vhodné použít konstrukci \verb!${}$! nebo \verb!\mbox{}! která říká, že (matematický) text nemá být zalomen. V následující definici je nastavena mezera mezi jednotlivými položkami \verb!\item! na 0.05em.
+    
+    \begin{definition}
+        \label{definice_turinguv_stroj} Turingův stroj \textit{(TS) je definován jako šestice tvaru ${M = (Q, \Sigma , \Gamma, \delta, q_0, q_F )}$, kde:}
+        
+        \begin{itemize}
+            \setlength\itemsep{0.05em}
+            \item ${Q}$ \textit{je konečná množina} vnitřních (řídicích) stavů,
+            \item ${\Sigma}$ \textit{je konečná množina symbolů nazývaná} vstupní abeceda, ${\Delta \notin \Sigma}$,
+            \item ${\Gamma}$ \textit{je ~konečná ~množina ~symbolů}, ${\Sigma \subset \Gamma, \Delta \in \Gamma,}$ \textit{nazývaná} pásková abeceda,
+            \item $\delta: (Q\backslash\{q_{F}\})\!\times\Gamma\rightarrow Q \times (\Gamma\cup\{L,R\})$ kde $L, R \notin \Gamma$, je parciální přechodová funkce, $a$
+            \item ${q_0 \in Q}$ \textit{je} počáteční stav ${a ~ q_f \in Q}$ \textit{je} koncový stav.
+        \end{itemize}
+    
+    Symbol ${\Delta}$ značí tzv. \textit{blank} (prázdný symbol), který se vyskytuje na místech pásky, která nebyla ještě použita. 
+    
+    \textit{Konfigurace pásky} se skládá z nekonečného řetězce, který reprezentuje obsah pásky a pozice hlavy na tomto řetězci. Jedná se o prvek množiny ${\{\gamma\Delta^\omega\mid\gamma\in\Gamma^*\}\times\mathbb{N}}$\footnote{Pro libovolnou abecedu ${\Sigma}$ je ${\Sigma^\omega}$ množina všech \textit{nekonečných} řetězců nad ${\Sigma}$, tj. nekonečných posloupností symbolů ze ${\Sigma}$.}. \textit{Konfiguraci pásky} obvykle zapisujeme jako ${\Delta xyz\underline{z}x\Delta...}$ (podtržení značí pozici hlavy). \textit{Konfigurace stroje} je pak dána stavem řízení a konfigurací pásky. Formálně se jedná o prvek množiny ${Q\times\{\gamma\Delta^\omega\mid\gamma\in\Gamma^*\}\times\mathbb{N}}$.
+    \end{definition}
+    
+    \subsection{Podsekce obsahující větu a odkaz}
+    \begin{definition}
+        \label{definice_retezec} Řetězec ${w}$ nad abecedou ${\Sigma}$ je přijat TS \textit{M jestliže M při aktivaci z počáteční ~konfigurace ~pásky ${\underline{\Delta}w\Delta...}$ a počátečního stavu ${q_0}$ zastaví přechodem do koncového stavu ${q_F}$ , tj. ${(q_0,\Delta w\Delta^\omega,0)\underset{M}{\overset{*}{\vdash}}(q_F, \gamma, n)}$ pro nějaké ${\gamma \in \Gamma^*}$ a ${n \in \mathbb{N}}$.} 
+        
+        \textit{Množinu ${L(M) = \{w \mid w \ \text{je přijat TS M}\} \subseteq \Sigma^*}$ nazýváme} jazyk přijímaný TS \textit{M}.
+    \end{definition}
+    
+    Nyní si vyzkoušíme sazbu vět a důkazů opět s použitím balíku \texttt{amsthm}.
+    \begin{sentence}
+        \label{veta_trida_jazyku} \textit{Třída jazyků, které jsou přijímány TS, odpovídá} rekurzivně vyčíslitelným jazykům
+    \end{sentence}
+    
+    \begin{proof}
+    V důkaze vyjdeme z Definice \ref{definice_turinguv_stroj} a \ref{definice_retezec}. 
+    \end{proof}
+    
+    \section{Rovnice}
+    Složitější matematické formulace sázíme mimo plynulý text. Lze umístit několik výrazů na jeden řádek, ale pak je třeba tyto vhodně oddělit, například příkazem \verb!\quad!.
+    
+    \[
+    \sqrt[i]{x_{i}^{3}} \quad \text{kde} \ x_i \  \text{je} \ i\text{-té sudé číslo} \quad y_{i}^{2\cdot y_{i}} \neq y_{i}^{y_{i}^{y_{i}}}
+    \]
+    
+    V rovnici (\ref{eq_1}) jsou využity tři typy závorek s různou explicitně definovanou velikostí.
+    
+    \begin{eqnarray}
+    \label{eq_1}x & = & \bigg\{ \Big(\big[a + b\big] * c\Big)^d \oplus 1 \bigg\} \\
+    \label{eq_2}y & = & \lim_{x\to\infty} \frac{\sin^2x + \cos^2x}{\frac{1}{\log_{10}{x}}}
+    \end{eqnarray}
+    
+    V této větě vidíme, jak vypadá implicitní vysázení limity ${\lim_{n\to\infty}f(n)}$ v normálním odstavci textu. Podobně je to i s dalšími symboly jako ${\sum_{i=1}^{n}2^i}$ či ${\bigcap_{A\in\mathcal{B}} A}$. V pří\-padě ~vzorců ${\lim\limits _{n\to\infty}f(n)}$ a ${\sum\limits _{i=1}^{n}2^i}$ jsme si vynutili méně úspornou sazbu příkazem \verb!\limits!.
+    
+    \section{Matice}
+    Pro sázení matic se velmi často používá prostředí \texttt{array} a závorky (\verb!\left!, \verb!\right!).
+    
+    $$
+    	\left(
+    	\begin{array}{ccc}
+    		a + b & \widehat{\xi + \omega} & \hat{\pi} \\
+    		\vec a & \overleftrightarrow{AC} & \beta
+    	\end{array}
+    	\right) = 1 \Longleftrightarrow \mathbb{Q} = \mathcal{R}
+	$$ 
+    \\ Prostředí \texttt{array} lze úspěšně využít i jinde.
+    $$
+		\binom{n}{k} =
+		\left\{
+		\begin{array}{c l}
+			0 & \text{pro } k < 0 \text{ nebo } k > n \\
+			\frac{n!}{k! (n - k)!} & \text{pro } 0 \leq k \leq n \text{.}
+		\end{array}
+		\right.
+	$$
+\end{document}
